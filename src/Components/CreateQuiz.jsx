@@ -99,8 +99,8 @@ class CreateQuiz extends Component {
                 <Col className="error-message">{this.state.errorMessage}</Col>
               </Row>
             ) : (
-              ""
-            )}
+                ""
+              )}
 
             <Form>
               <Form.Group>
@@ -163,12 +163,12 @@ class CreateQuiz extends Component {
 
                 <Row>
                   <Col md={6}>
-                    <Button onClick={() => this.handleCreateNextQuestion()}>
+                    <Button onClick={() => this.handleCreateNextQuestion()} id="createAnotherQuestion">
                       Create another question
                     </Button>
                   </Col>
                   <Col md={6}>
-                    <Button onClick={() => this.handleQuizSave()}>
+                    <Button onClick={() => this.handleQuizSave()} id="finishQuizCreation">
                       Finish quiz creation
                     </Button>
                   </Col>

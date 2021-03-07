@@ -45,7 +45,7 @@ class Teacher extends Component {
             <h3>Name: {this.userName}</h3>
           </Col>
           <Col style={{ textAlign: "right" }}>
-            <Button>
+            <Button id="createQuizButton">
               <Link
                 className="link-btn"
                 to={{
@@ -63,37 +63,37 @@ class Teacher extends Component {
             {this.props.location.confirmationMessage ? (
               <h3>{this.props.location.confirmationMessage}</h3>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </Col>
         </Row>
         <Row>
           {classList.length <= 0 ? (
             <Col>Fetching the classes from the database</Col>
           ) : (
-            classList.map((className, index) => (
-              <Col md={4} key={index}>
-                <Card
-                  style={{ width: "18rem" }}
-                  className="two-margin-top-bottom"
-                >
-                  <Card.Body>
-                    <Card.Title>
-                      <Link
-                        to={{
-                          pathname: "/studentlist",
-                          className: className
-                        }}
-                      >
-                        {className}
-                      </Link>
-                    </Card.Title>
-                    <Card.Text>Click here to view the student list.</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          )}
+              classList.map((className, index) => (
+                <Col md={4} key={index}>
+                  <Card
+                    style={{ width: "18rem" }}
+                    className="two-margin-top-bottom"
+                  >
+                    <Card.Body>
+                      <Card.Title>
+                        <Link
+                          to={{
+                            pathname: "/studentlist",
+                            className: className
+                          }}
+                        >
+                          {className}
+                        </Link>
+                      </Card.Title>
+                      <Card.Text>Click here to view the student list.</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))
+            )}
         </Row>
       </Container>
     );

@@ -44,49 +44,49 @@ class Student extends Component {
             {this.props.location.confirmationMessage ? (
               <h3>{this.props.location.confirmationMessage}</h3>
             ) : (
-              ""
-            )}
+                ""
+              )}
           </Col>
         </Row>
         <Row>
           {quizList.length < 1 ? (
             <Col>You have no quiz assigned</Col>
           ) : (
-            quizList.map((quiz, index) => (
-              <Col md={4} key={index}>
-                <Card
-                  style={{ width: "18rem" }}
-                  className="two-margin-top-bottom"
-                >
-                  <Card.Body>
-                    <Card.Title className="text-align-center">
-                      {quiz.status === "completed" ? (
-                        <div>Quiz {index + 1}</div>
-                      ) : (
-                        <Link
-                          to={{
-                            pathname: "/quiz",
-                            name: this.studentName,
-                            quizId: quiz.id
-                          }}
-                          key={index}
-                        >
+              quizList.map((quiz, index) => (
+                <Col md={4} key={index}>
+                  <Card
+                    style={{ width: "18rem" }}
+                    className="two-margin-top-bottom"
+                  >
+                    <Card.Body>
+                      <Card.Title className="text-align-center">
+                        {quiz.status === "completed" ? (
                           <div>Quiz {index + 1}</div>
-                        </Link>
-                      )}
-                    </Card.Title>
+                        ) : (
+                            <Link id={quiz.id}
+                              to={{
+                                pathname: "/quiz",
+                                name: this.studentName,
+                                quizId: quiz.id
+                              }}
+                              key={index}
+                            >
+                              <div>Quiz {index + 1}</div>
+                            </Link>
+                          )}
+                      </Card.Title>
 
-                    <Card.Text>Status: {quiz.status}</Card.Text>
-                    {quiz.status === "completed" ? (
-                      <Card.Text>Marks: {quiz.marks}</Card.Text>
-                    ) : (
-                      ""
-                    )}
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          )}
+                      <Card.Text>Status: {quiz.status}</Card.Text>
+                      {quiz.status === "completed" ? (
+                        <Card.Text>Marks: {quiz.marks}</Card.Text>
+                      ) : (
+                          ""
+                        )}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))
+            )}
         </Row>
       </Container>
     );

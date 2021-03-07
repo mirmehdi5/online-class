@@ -17,19 +17,17 @@ class Home extends Component {
   handleLogin() {
     axios
       .get(
-        "http://localhost:5000/login?name=" +
-          this.username.current.value +
-          "&password=" +
-          this.password.current.value
+        'http://localhost:3000/api/loginuser?email=mirmohammedmehdi@gmail.com&password=test123!'
       )
       .then(res => {
-        if (res.data.success === true && res.data.data.length > 0) {
-          this.setState({ loginStatus: true, role: res.data.data[0].role });
-        } else if (res.data.success === false) {
-          this.setState({ errorMessage: "Error connecting the network" });
-        } else {
-          this.setState({ errorMessage: "Invalid credentials" });
-        }
+        console.log(res)
+        // if (res.data.success === true && res.data.data.length > 0) {
+        //   this.setState({ loginStatus: true, role: res.data.data[0].role });
+        // } else if (res.data.success === false) {
+        //   this.setState({ errorMessage: "Error connecting the network" });
+        // } else {
+        //   this.setState({ errorMessage: "Invalid credentials" });
+        // }
       });
   }
   render() {
@@ -50,8 +48,8 @@ class Home extends Component {
                       {this.state.errorMessage}
                     </div>
                   ) : (
-                    ""
-                  )}
+                      ""
+                    )}
                 </Col>
               </Row>
               <Form>
@@ -73,7 +71,7 @@ class Home extends Component {
                     ref={this.password}
                   />
 
-                  <Button
+                  <Button id="homeSubmit"
                     style={{ marginTop: "2rem", width: "8rem" }}
                     block
                     onClick={() => this.handleLogin()}

@@ -55,8 +55,8 @@ class AssignToStudents extends Component {
               <Col>{this.state.errorMessage}</Col>
             </Row>
           ) : (
-            ""
-          )}
+              ""
+            )}
 
           <Row className="one-padding-left">
             <Col>
@@ -67,6 +67,7 @@ class AssignToStudents extends Component {
                       <Input
                         type="checkbox"
                         className="mb-3"
+                        id="123"
                         onClick={() =>
                           this.handleSelectedStudents(student.name)
                         }
@@ -76,12 +77,12 @@ class AssignToStudents extends Component {
                   </Row>
                 ))
               ) : (
-                <div>Fetching data from the database</div>
-              )}
+                  <div>Fetching data from the database</div>
+                )}
             </Col>
           </Row>
 
-          <Button className="link-btn" onClick={() => this.handleQuizAssign()}>
+          <Button className="link-btn" id="handleQuiz" onClick={() => this.handleQuizAssign()}>
             Assign to students
           </Button>
         </Container>
