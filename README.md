@@ -13,10 +13,14 @@
   
   If you wish to use the Database I have already hosted
      Feel free to use the following credtials to login
+
       Teacher:
+      
          Name: John
          Password: 1234
+
       Students
+
         Name: Tom
         Password: 1234
 
